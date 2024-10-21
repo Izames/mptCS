@@ -5,9 +5,11 @@ import {Footer} from "../components/Footer.jsx";
 export const CheckPage = () => {
     return (
         <>
-            <Header/>
-            <CheckContent/>
-            <Footer/>
+             <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+                    <Header/>
+                    <CheckContent/>
+                    <Footer style={{ marginTop: 'auto' }}/> 
+                </div>
         </>
     )
 }
