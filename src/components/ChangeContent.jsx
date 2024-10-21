@@ -1,10 +1,13 @@
 import './Change.css'
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'; 
+import AppStore from '../store/StatusUser';
 
 export function ChangeContent() {
+  const setAuth = AppStore(state => state.SetAuth); 
   const navigate = useNavigate();
   const handleWorkSpheres = () => {
+    setAuth(true);
     navigate('/Checkout'); 
   };
 

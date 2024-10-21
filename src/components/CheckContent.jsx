@@ -14,7 +14,7 @@ export function CheckContent() {
   <p className="check-text">Введите текущий учебный год и информацию:</p>
   <input type="text" placeholder="Пример: 2023/2024" className="check-input" />
   <input type="text" placeholder="Пример: номер телефона" className="check-phone-input" />
-  <button className="check-button">Добавить информацию</button>
+  <button className="check-button1">Добавить информацию</button>
 </div>
 <div>
   <p className="check-text">Выбор файла (типа .xlsx):</p>

@@ -2,7 +2,6 @@
     margin-left: 0.625rem;
     margin-right: 0.625rem;
     margin-top: 0.625rem;
-    margin-bottom: 0.625rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
     gap: 1.875rem;
@@ -31,7 +30,17 @@
     width: 25rem;
     height: 6.25rem;
   }
-  
+  .check-button1 {
+    font-size: 1.6875rem;
+    background-color: rgb(75, 119, 206);
+    color: white;
+    padding: 0.625rem 1.25rem;
+    border: none;
+    border-radius: 1.875rem;
+    cursor: pointer;
+    width: 25rem;
+    height: 6.25rem;
+  }
   .check-button2 {
     font-size: 1.6875rem;
     background-color: rgb(88, 166, 210);
@@ -103,7 +112,11 @@
     .check-export-button {
         width: 80%;
     }
+    .check-input {
+      font-size: 100%;
+    }
     .check-phone-input {
+      text-align: center;
         width: 80%;
         font-size: 100%;
     }
@@ -113,9 +126,13 @@
     .check-button2 {
       width: 80%;
   }
+  .check-button1 {
+    width: 80%;
+  }
     .check-text {
+      text-align: center;
         width: 80%;
-        font-size: 80%;
+        font-size: 100%;
     }
     .check-input {
         width: 80%;

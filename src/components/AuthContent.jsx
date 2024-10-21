@@ -1,20 +1,23 @@
-import './Auth.css'
+import './Auth.css';
 import { useNavigate } from 'react-router-dom'; 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import AppStore from '../store/StatusUser';
 
 export function AuthContent() {
+  const setAuth = AppStore(state => state.SetAuth); 
   const navigate = useNavigate();
-
   useEffect(() => {
     document.title = 'Страница авторизации';
   }, []);
 
+ 
   const handleForgotPassword = () => {
-    navigate('/Post'); 
+    navigate('/Post');
   };
 
   const handleWorkSphere = () => {
-    navigate('/Checkout'); 
+    setAuth(true);
+    navigate('/Checkout');
   };
 
   return (
@@ -27,5 +30,5 @@ export function AuthContent() {
         <button onClick={handleForgotPassword} className="auth-forgot-password">Забыли пароль?</button>
       </div>
     </div>
-  )
+  );
 }
