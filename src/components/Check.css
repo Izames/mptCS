@@ -1,0 +1,141 @@
+.check-container {
+    margin-left: 0.625rem;
+    margin-right: 0.625rem;
+    margin-top: 0.625rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 1.875rem;
+    border-radius: 1.875rem;
+    justify-items: center;
+  }
+  
+  .check-input {
+    font-size: 1.6875rem;
+    padding: 1.5625rem;
+    border: 1px solid #ccc;
+    border-radius: 1.875rem;
+    background-color: #f0f0f0;
+    width: 25rem;
+    height: 6.25rem;
+  }
+  
+  .check-button {
+    font-size: 1.6875rem;
+    background-color: rgb(75, 119, 206);
+    color: white;
+    padding: 0.625rem 1.25rem;
+    border: none;
+    border-radius: 1.875rem;
+    cursor: pointer;
+    width: 25rem;
+    height: 6.25rem;
+  }
+  .check-button1 {
+    margin-bottom: 20px;
+    font-size: 1.6875rem;
+    background-color: rgb(75, 119, 206);
+    color: white;
+    padding: 0.625rem 1.25rem;
+    border: none;
+    border-radius: 1.875rem;
+    cursor: pointer;
+    width: 25rem;
+    height: 6.25rem;
+  }
+  .check-button2 {
+    font-size: 1.6875rem;
+    background-color: rgb(88, 166, 210);
+    color: white;
+    padding: 0.625rem 1.25rem;
+    border: none;
+    border-radius: 1.875rem;
+    cursor: pointer;
+    width: 25rem;
+    height: 6.25rem;
+  }
+
+  
+  .check-text {
+    font-size: 1.6875rem;
+    width: 25rem;
+    height: 3.75rem;
+    text-align: center;
+  }
+  
+  .check-phone-input {
+    
+    font-size: 27px;
+    padding: 25px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    background-color: #f0f0f0;
+    width: 400px;
+    height: 100px;
+  }
+
+  .check-text,
+  .check-input,
+  .check-phone-input,
+  .check-button, .check-button2 {
+    margin-bottom: 1.5rem; 
+  }
+.addbtn {
+  display: flex;
+  flex-direction: column;
+   align-items: center;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(62, 100, 176);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(75, 119, 206); 
+  border-radius: 20px; 
+  height: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5588d9; 
+}
+
+  @media (max-width: 700px) {
+    .check-container {
+        align-items: center; 
+        align-content: center; 
+        grid-template-columns: 1fr; 
+        text-align: center; 
+        justify-content: center; 
+      }
+    .check-export-button {
+        width: 80%;
+    }
+    .check-input {
+      font-size: 100%;
+    }
+    .check-phone-input {
+      text-align: center;
+        width: 80%;
+        font-size: 100%;
+    }
+    .check-button {
+        width: 80%;
+    }
+    .check-button2 {
+      width: 80%;
+  }
+  .check-button1 {
+    width: 80%;
+  }
+    .check-text {
+      text-align: center;
+        width: 80%;
+        font-size: 100%;
+    }
+    .check-input {
+        width: 80%;
+    }
+  }
