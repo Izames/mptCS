@@ -31,6 +31,7 @@
     height: 6.25rem;
   }
   .check-button1 {
+    margin-bottom: 20px;
     font-size: 1.6875rem;
     background-color: rgb(75, 119, 206);
     color: white;
