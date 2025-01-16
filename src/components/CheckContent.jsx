@@ -8,7 +8,7 @@ export function CheckContent() {
   const [EmailError, setEmailError] = useState(false);
   const [Password, setPassword] = useState('');
   const [PasswordError, setPasswordError] = useState(false);
-
+  const [year, setYear] = useState('');
   const [schedules, setSchedules] = useState([]);
   const [teachers, setTeachers] = useState(null);
   const [colors, setColors] = useState([]);
@@ -22,6 +22,9 @@ export function CheckContent() {
   }
   const handlePlaceChange = (e) => {
     setPlace(e.target.value);
+  }
+  const handleYearChange = (e) => {
+    setYear(e.target.value);
   }
 
   const addPlaceColor = () => {
@@ -87,7 +90,7 @@ export function CheckContent() {
     const formData = new FormData();
     schedules.forEach((file) => formData.append('schedules', file));
     formData.append('teachers', teachers);
-    formData.append('year', '2023/2024');
+    formData.append('year', year);
     colors.forEach((color) => formData.append('colors', color));
     places.forEach((place) => formData.append('places', place));
 
@@ -150,12 +153,12 @@ export function CheckContent() {
 
         <div className="addbtn">
           <p className="check-text">Введите текущий учебный год и информацию:</p>
-          <input type="text" placeholder="Учебный год: (2023/2024)" className="check-input"/>
+          <input type="text" placeholder="Учебный год: (2023/2024)" className="check-input" onChange={handleYearChange}/>
         </div>
         <div>
-          <p className="check-text">Выбор файла (типа .xlsx):</p>
+          <p className="check-text">Выбор файлов расписаний (типа .xlsx):</p>
           <input type='file' multiple={true} onChange={handleSchedulesFiles}/>
-          <p className="check-text">Выбор файла (типа .xlsx):</p>
+          <p className="check-text">Выбор файла учителей (типа .xlsx):</p>
           <input type="file" onChange={handleTeacherFile}/>
         </div>
         <div>
