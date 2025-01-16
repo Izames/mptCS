@@ -1,0 +1,60 @@
+.change-container {
+    text-align: center;
+  }
+  
+  .change-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.625rem;
+  }
+  
+  .change-title {
+    color: rgb(62, 100, 176);
+    font-size: 2.75rem;
+    margin-bottom: 1.25rem;
+    margin-top: 1.25rem;
+  }
+  
+  .change-input {
+    margin-bottom: 1.25rem;
+    margin-top: 1.25rem;
+    font-size: 2.75rem;
+    width: 37.5rem;
+    padding: 1.5625rem;
+    border: 1px solid #ccc;
+    border-radius: 1.875rem;
+    background-color: #f0f0f0;
+  }
+  
+  .change-button {
+    margin-bottom: 1.25rem;
+    margin-top: 1.25rem;
+    font-size: 2.75rem;
+    width: 37.5rem;
+    padding: 1.5625rem;
+    background-color: #3E64B0;
+    color: white;
+    border: none;
+    border-radius: 1.875rem;
+    cursor: pointer;
+  }
+  
+  @media (max-width: 700px) {
+    .change-input,
+    .change-button {
+      width: 60%;
+    }
+  
+    .change-title {
+      font-size: 2rem;
+    }
+  
+    .change-input {
+      font-size: 1.5rem; 
+    }
+  
+    .change-button {
+      font-size: 1.5rem;
+    }
+  }
