@@ -12,15 +12,18 @@
   .change-title {
     color: rgb(62, 100, 176);
     font-size: 2.75rem;
-    margin-bottom: 1.25rem;
-    margin-top: 1.25rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
   }
-  
+  .change-text {
+    color: rgb(62, 100, 176);
+    font-size: 1.75rem;
+  }
   .change-input {
-    margin-bottom: 1.25rem;
-    margin-top: 1.25rem;
-    font-size: 2.75rem;
-    width: 37.5rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    font-size: 1.75rem;
+    width: 17.5rem;
     padding: 1.5625rem;
     border: 1px solid #ccc;
     border-radius: 1.875rem;
@@ -28,10 +31,10 @@
   }
   
   .change-button {
-    margin-bottom: 1.25rem;
-    margin-top: 1.25rem;
-    font-size: 2.75rem;
-    width: 37.5rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    font-size: 1.75rem;
+    width: 17.5rem;
     padding: 1.5625rem;
     background-color: #3E64B0;
     color: white;

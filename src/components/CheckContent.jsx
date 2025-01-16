@@ -135,29 +135,35 @@ export function CheckContent() {
 
   return (
       <main className="check-container">
-        <input type="text" placeholder="Почта: (mpt@mpt.ru)"
+         <h1 className="check-text">Почта</h1>
+         <h1 className="check-text">Пароль</h1>
+         <h1 className="check-text"></h1>
+        <input type="text" 
                className={`check-input ${EmailError ? 'border-red-500 border-[2px]' : ''}`}
                value={Email}
                onChange={handleEmailChange}/>
-        <input type="password" placeholder="Пароль: (123mpt)"
+               
+        <input type="password" 
                className={`check-input ${PasswordError ? 'border-red-500 border-[2px]' : ''}`}
                value={Password}
                onChange={handleChangePassword}/>
         <button className="check-button" onClick={handleWorkSphere}>Добавить пользователя</button>
-
-        <input type="text" placeholder="Корпус: (Нахимовский)" value={place} className="check-input"
+        <h1 className="check-text">Корпус (Нахимовский)</h1>
+         <h1 className="check-text">Цвет корпуса</h1>
+         <h1 className="check-text"></h1>
+        <input type="text"  value={place} className="check-input"
                onChange={handlePlaceChange}/>
         <input type="color" className="check-input" value={color} onChange={handleColorChange}/>
         <button className="check-button" onClick={addPlaceColor}>Добавить корпус в систему</button>
 
 
         <div className="addbtn">
-          <p className="check-text">Введите текущий учебный год и информацию:</p>
-          <input type="text" placeholder="Учебный год: (2023/2024)" className="check-input" onChange={handleYearChange}/>
+          <p className="check-text">Введите текущий учебный год (2024/2025):</p>
+          <input type="text " className="check-input" onChange={handleYearChange}/>
         </div>
         <div>
           <p className="check-text">Выбор файлов расписаний (типа .xlsx):</p>
-          <input type='file' multiple={true} onChange={handleSchedulesFiles}/>
+          <input type='file'  multiple={true} onChange={handleSchedulesFiles}/>
           <p className="check-text">Выбор файла учителей (типа .xlsx):</p>
           <input type="file" onChange={handleTeacherFile}/>
         </div>

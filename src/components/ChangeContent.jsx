@@ -63,16 +63,16 @@ export function ChangeContent() {
   return (
     <div className="change-container">
       <div className="change-form">
-        <h1 className="change-title">Введите почту</h1>
-        <input type="text" placeholder="почта" className={`change-input ${UsermailError ? 'border-red-500 border-[2px]' : ''}`}
+        <h1 className="change-text">Введите почту</h1>
+        <input type="text" className={`change-input ${UsermailError ? 'border-red-500 border-[2px]' : ''}`}
                value={Usermail}
                onChange={handleUsermailChange} />
-        <h1 className="change-title">Введите код из сообщения на почте</h1>
-        <input type="text" placeholder="Код из сообщения" className={`change-input ${PinError ? 'border-red-500 border-[2px]' : ''}`}
+        <h1 className="change-text">Введите код из сообщения на почте</h1>
+        <input type="texts"  className={`change-input ${PinError ? 'border-red-500 border-[2px]' : ''}`}
                value={Pin}
                onChange={handleChangePin} />
-        <h1 className="change-title">Введите Новый пароль</h1>
-        <input type="password" placeholder="Новый пароль" className={`change-input ${PasswordError ? 'border-red-500 border-[2px]' : ''}`}
+        <h1 className="change-text">Введите Новый пароль</h1>
+        <input type="password"  className={`change-input ${PasswordError ? 'border-red-500 border-[2px]' : ''}`}
                value={Password}
                onChange={handleChangePassword} />
         <button onClick={handleWorkSphere} className="change-button">Сменить пароль</button>

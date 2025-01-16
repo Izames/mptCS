@@ -1,6 +1,5 @@
 import {Header} from "../components/Header.jsx";
-import {PostContent} from "../components/PostContent.jsx";
-
+import {PostContent} from "../components/PostContent.jsx"
 
 export const PostPage = () => {
     return (
