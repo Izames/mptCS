@@ -2,6 +2,7 @@ import './Change.css'
 import React, {useEffect, useState} from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import AppStore from '../store/StatusUser';
+import clickSound  from '../assets/click-sound.mp3';
 
 export function ChangeContent() {
   const setAuth = AppStore(state => state.SetAuth); 
@@ -18,6 +19,14 @@ export function ChangeContent() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     setUsermailError(!emailRegex.test(usermail));
   }
+
+  const audio = new Audio(clickSound); 
+
+  const playSound = () => {
+    audio.currentTime = 0; 
+    audio.play(); 
+  };
+
   const handleChangePassword = (e) => {
     const password = e.target.value;
     setPassword(password);
@@ -29,6 +38,7 @@ export function ChangeContent() {
     setPinError(pin.length!=6)
   }
   const handleWorkSphere = async () => {
+    playSound();
     try {
       const response = await fetch('http://localhost:8080/auth/checkPin', {
         method: 'POST',
@@ -63,7 +73,7 @@ export function ChangeContent() {
   return (
     <div className="change-container">
       <div className="change-form">
-        <h1 className="change-text">Введите почту</h1>
+        <h1 className="change-text">Введите адрес электронной почты</h1>
         <input type="text" className={`change-input ${UsermailError ? 'border-red-500 border-[2px]' : ''}`}
                value={Usermail}
                onChange={handleUsermailChange} />
@@ -71,7 +81,7 @@ export function ChangeContent() {
         <input type="texts"  className={`change-input ${PinError ? 'border-red-500 border-[2px]' : ''}`}
                value={Pin}
                onChange={handleChangePin} />
-        <h1 className="change-text">Введите Новый пароль</h1>
+        <h1 className="change-text">Введите новый пароль от аккаунта</h1>
         <input type="password"  className={`change-input ${PasswordError ? 'border-red-500 border-[2px]' : ''}`}
                value={Password}
                onChange={handleChangePassword} />

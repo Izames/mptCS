@@ -4,6 +4,7 @@ import { AuthorizationPage } from "./pages/AuthorizationPage.jsx";
 import { CheckPage } from "./pages/CheckPage.jsx";
 import { ChangePage } from './pages/ChangePage.jsx';
 import { PostPage } from './pages/PostPage.jsx';
+import { RegPage } from './pages/RegPage.jsx'
 import React, { useState } from 'react';
 import AppStore from './store/StatusUser.js';
 
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/Checkout" element={Auth ? <CheckPage /> : <Navigate to="/" />} />
         <Route path="/Change" element={<ChangePage />} />
         <Route path="/Post" element={<PostPage /> } />
+        <Route path='/Reg' element={<RegPage /> } />
       </Routes>
     </Router>
   );

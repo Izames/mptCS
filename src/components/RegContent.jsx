@@ -1,10 +1,9 @@
-import './Auth.css';
 import { useNavigate } from 'react-router-dom'; 
 import React, { useEffect, useState } from 'react';
 import AppStore from '../store/StatusUser';
 import clickSound  from '../assets/click-sound.mp3';
 
-export function AuthContent() {
+export function RegContent() {
   const setAuth = AppStore(state => state.SetAuth); 
   const navigate = useNavigate();
   const [Email, setEmail] = useState('');
@@ -14,7 +13,7 @@ export function AuthContent() {
   const [Error, setError] = useState(false);
   
   useEffect(() => {
-    document.title = 'Страница авторизации';
+    document.title = 'Страница регистрации';
   }, []);
 
   const audio = new Audio(clickSound); 
@@ -22,15 +21,6 @@ export function AuthContent() {
   const playSound = () => {
     audio.currentTime = 0; 
     audio.play(); 
-  };
- 
-  const handleForgotPassword = () => {
-    playSound();
-    navigate('/Post');
-  };
-  const handleReg = () => {
-    playSound();
-    navigate('/Reg');
   };
   const handleEmailChange = (e) => {
     const email = e.target.value;
@@ -44,9 +34,10 @@ export function AuthContent() {
     setPasswordError(password.length<6)
   }
   const handleWorkSphere = async () => {
+    playSound();
     console.log('Отправляемые данные:', { Email, Password });
     try {
-      const response = await fetch('http://localhost:8080/auth/login', {
+      const response = await fetch('http://localhost:8080/auth/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -74,7 +65,7 @@ export function AuthContent() {
 
  return (
     <div className="auth-container">
-      <h1 className="auth-title">Авторизация</h1>
+      <h1 className="auth-title">Регистация</h1>
       <div className="auth-form">
       <h1 className="auth-text">Почта</h1>
         <input
@@ -90,12 +81,10 @@ export function AuthContent() {
           value={Password}
           onChange={handleChangePassword} // Обновляем состояние password
         />
-        <button onClick={handleForgotPassword} className="auth-forgot-password">Забыли пароль?</button>
-        <button onClick={handleWorkSphere} className="auth-button">Авторизоваться</button>
+        <button onClick={handleWorkSphere} className="auth-button">Зарегестироваться</button>
         {Error ? ( // Условное рендеринг сообщения об ошибке
             <p className={'text-red-600 text-xl'}>неверный логин или пароль</p>
         ) : null}
-       <button onClick={handleReg} className="auth-forgot-password">Регистрация</button>
       </div>
     </div>
   );

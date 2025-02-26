@@ -1,3 +1,7 @@
+/* Check.css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+
 .change-container {
     text-align: center;
   }
@@ -7,40 +11,50 @@
     flex-direction: column;
     align-items: center;
     gap: 0.625rem;
+    
   }
   
   .change-title {
-    color: rgb(62, 100, 176);
+    color: #89A8B2;
     font-size: 2.75rem;
     margin-bottom: 1rem;
     margin-top: 1rem;
   }
   .change-text {
-    color: rgb(62, 100, 176);
-    font-size: 1.75rem;
+    font-family: 'Source Code Pro', cursive;
+    color: #89A8B2;
+    font-size: 1rem;
   }
   .change-input {
     margin-bottom: 1rem;
     margin-top: 1rem;
-    font-size: 1.75rem;
+    font-size: 1rem;
     width: 17.5rem;
     padding: 1.5625rem;
     border: 1px solid #ccc;
     border-radius: 1.875rem;
     background-color: #f0f0f0;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   }
   
   .change-button {
     margin-bottom: 1rem;
     margin-top: 1rem;
-    font-size: 1.75rem;
+    font-size: 1rem;
     width: 17.5rem;
     padding: 1.5625rem;
-    background-color: #3E64B0;
+    background-color: #89A8B2;
     color: white;
     border: none;
     border-radius: 1.875rem;
     cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; 
+  }
+  .change-button:hover {
+    background-color: #7A9A9F; 
+    transform: translateY(-2px); 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
   }
   
   @media (max-width: 700px) {

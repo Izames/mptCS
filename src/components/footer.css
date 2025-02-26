@@ -1,3 +1,7 @@
+/* Check.css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+
 html, body {
     margin: 0; 
     padding: 0;
@@ -16,3 +20,27 @@ main {
 footer {
     flex: 0 0 auto;
 }
+
+.button-exit {
+    margin-right: 50px;
+    font-size: 2rem;
+    width: 180px;
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; 
+    font-family: 'Source Code Pro', cursive;
+  }
+  
+  .button-exit:hover {
+    background-color: #f0f0f0; 
+    transform: translateY(-2px); 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+  }
+  .text-style {
+    font-family: 'Source Code Pro', cursive;;
+  }

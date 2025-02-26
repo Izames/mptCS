@@ -1,177 +1,120 @@
 import './Check.css'
+import checkImage from '../assets/image.png'
 import React, {useEffect, useState} from 'react';
+import clickSound  from '../assets/click-sound.mp3';
 export function CheckContent() {
   useEffect(() => {
-    document.title = 'Страница проверки накладок';
+    document.title = 'Страница создания расписания';
   }, []);
-  const [Email, setEmail] = useState('');
-  const [EmailError, setEmailError] = useState(false);
-  const [Password, setPassword] = useState('');
-  const [PasswordError, setPasswordError] = useState(false);
+
+  const [director, setDirector] = useState('');
+  const [directorYMR, setDirectorYMR] = useState('');
+  const [directorYR, setDirectorYR] = useState('');
+  const [popova, setPopova] = useState('');
   const [year, setYear] = useState('');
-  const [schedules, setSchedules] = useState([]);
-  const [teachers, setTeachers] = useState(null);
-  const [colors, setColors] = useState([]);
-  const [places, setPlaces] = useState([]);
-  const [color, setColor] = useState('#1A1A1A');
-  const [place, setPlace] = useState('');
+  const [date_s, setDate_s] = useState('');
+  const [date_do, setDate_do] = useState('');
+  const audio = new Audio(clickSound); 
 
+  const playSound = () => {
+    audio.currentTime = 0; 
+    audio.play(); 
+  };
 
-  const handleColorChange = (e) => {
-    setColor(e.target.value);
+  const handleDirector = (e) => {
+    // setDirector(e.target.value);
   }
-  const handlePlaceChange = (e) => {
-    setPlace(e.target.value);
+  const handleDirectorYMR = (e) => {
+    // setDirectorYMR(e.target.value);
+  }
+  const handleDirectorYR = (e) => {
+    // setDirectorYR(e.target.value);
+  }
+  const handlePopova = (e) => {
+    // setPopova(e.target.value);
+  }
+  const handleDateS = (e) => {
+    // setDate_s(e.target.value);
+  }
+  const handleDateDo= (e) => {
+    // setDate_do(e.target.value);
   }
   const handleYearChange = (e) => {
-    setYear(e.target.value);
+    // setYear(e.target.value);
   }
 
-  const addPlaceColor = () => {
-    if (place !== '') {
-      alert(`добавлено ${place} ${color}`)
-      places.push(place);
-      setPlaces(places);
-      setPlace('');
-      colors.push(color);
-      setColors(colors);
-      setColor('#1A1A1A')
-    }
-    else {
-      alert('выберите место')
-    }
-  }
-  const handleSchedulesFiles = (event) => {
-    setSchedules(Array.from(event.target.files));
-  };
-
-  const handleTeacherFile = (event) => {
-    setTeachers(event.target.files[0]);
-  };
-
-  const handleEmailChange = (e) => {
-    const email = e.target.value;
-    setEmail(email);
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    setEmailError(!emailRegex.test(email));
-  }
-  const handleChangePassword = (e) => {
-    const password = e.target.value;
-    setPassword(password);
-    setPasswordError(password.length<6)
+  const handleFinal = (e) => {
+ 
   }
 
-  const handleWorkSphere = async () => {
-    try {
-      const response = await fetch('http://localhost:8080/auth/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ Email, Password }),
-      });
+  const handleImportTeacher = (e) => {
+ 
+  }
 
-      if (response.ok) {
-        alert('пользователь добавлен')
-      } else {
-        if (response.status === 400) {
-          alert(`неверные данные для нового пользователя/пользователь уже существует.`);
-        } else {
-          alert(`Неизвестная ошибка.`);
-        }
-      }
-    } catch (error) {
-      console.error('Ошибка сети:', error);
-    }
-  };
+  const handleImportGroup= (e) => {
+ 
+  }
 
-  const handleCheck = async (event) => {
-    event.preventDefault();
-    const formData = new FormData();
-    schedules.forEach((file) => formData.append('schedules', file));
-    formData.append('teachers', teachers);
-    formData.append('year', year);
-    colors.forEach((color) => formData.append('colors', color));
-    places.forEach((place) => formData.append('places', place));
+  const handleImportVipiski= (e) => {
+ 
+  }
 
-    const token = localStorage.getItem('jwtToken');
-    if (!token) {
-      alert('Токен не найден!');
-      return;
-    }
-
-    try {
-      const response = await fetch('http://localhost:8080/schedule/CheckSchedule', {
-        method: 'POST',
-        body: formData,
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        alert(`Ошибка отправки данных: ${response.status} - ${errorData.error || 'Неизвестная ошибка'}`);
-        return;
-      }
-
-      const blob = await response.blob(); // Получаем ответ как blob
-      const url = URL.createObjectURL(blob); // Создаём URL из blob
-
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'schedule.zip'; // Имя файла для скачивания
-      a.style.display = 'none'; // Скрываем ссылку
-      document.body.appendChild(a);
-      a.click(); // Программный клик на ссылку
-      document.body.removeChild(a); // Удаляем ссылку после скачивания
-      URL.revokeObjectURL(url); // Освобождаем URL
-
-    } catch (error) {
-      console.error('Ошибка сети:', error);
-      alert('Ошибка сети!');
-    }
-  };
 
   return (
-      <main className="check-container">
-         <h1 className="check-text">Почта</h1>
-         <h1 className="check-text">Пароль</h1>
-         <h1 className="check-text"></h1>
-        <input type="text" 
-               className={`check-input ${EmailError ? 'border-red-500 border-[2px]' : ''}`}
-               value={Email}
-               onChange={handleEmailChange}/>
-               
-        <input type="password" 
-               className={`check-input ${PasswordError ? 'border-red-500 border-[2px]' : ''}`}
-               value={Password}
-               onChange={handleChangePassword}/>
-        <button className="check-button" onClick={handleWorkSphere}>Добавить пользователя</button>
-        <h1 className="check-text">Корпус (Нахимовский)</h1>
-         <h1 className="check-text">Цвет корпуса</h1>
-         <h1 className="check-text"></h1>
-        <input type="text"  value={place} className="check-input"
-               onChange={handlePlaceChange}/>
-        <input type="color" className="check-input" value={color} onChange={handleColorChange}/>
-        <button className="check-button" onClick={addPlaceColor}>Добавить корпус в систему</button>
+    <main className="check-container">
+  
+  
+      <p className="check-thank-you">Необходимо заполнить поля!</p>
+  
+  
+<div className="fields-container">
+      <div className="field-group">
+        <div className="field-column">
+          <p className="check-texts">ФИО действующего директора</p>
+          <p className="check-texts">ФИО зам. директора по УМР</p>
+          <p className="check-texts">ФИО зам. директора по УР</p>
+          <p className="check-texts">ФИО начальника учебно-методического отдела</p>
+          <p className="check-texts">Учебный год расписания</p>
+        </div>
 
+        <div className="field-column">
+          <input type="text"  className="check-input" placeholder="Введите данные" onChange={handleDirector} />
+          <input type="text" className="check-input" placeholder="Введите данные" onChange={handleDirectorYMR} />
+          <input type="text" className="check-input" placeholder="Введите данные" onChange={handleDirectorYR} />
+          <input type="text" className="check-input" placeholder="Введите данные" onChange={handlePopova} />
+          <input type="text" className="check-input" placeholder="Введите данные" onChange={handleYearChange} />
+        </div>
+      </div>
 
-        <div className="addbtn">
-          <p className="check-text">Введите текущий учебный год (2024/2025):</p>
-          <input type="text " className="check-input" onChange={handleYearChange}/>
+      <div className="field-group">
+        <div className="field-column">
+        <p className="check-texts">Срок действия расписания с</p>
+        <p className="check-texts">Срок действия расписания до</p>
+          
         </div>
-        <div>
-          <p className="check-text">Выбор файлов расписаний (типа .xlsx):</p>
-          <input type='file'  multiple={true} onChange={handleSchedulesFiles}/>
-          <p className="check-text">Выбор файла учителей (типа .xlsx):</p>
-          <input type="file" onChange={handleTeacherFile}/>
+
+        <div className="field-column">
+        <input type="text" className="check-input" placeholder="Введите данные" onChange={handleDateS} />
+        <input type="text" className="check-input" placeholder="Введите данные" onChange={handleDateDo} />
+        <div className="button-container">
+        <button className="check-button" onClick={playSound} onChange={handleImportTeacher}>Импорт ограничений преподавателя</button>
+        <button className="check-button23" onClick={playSound} onChange={handleImportGroup}>Импорт ограничений для групп</button>
+        <button className="check-button23" onClick={playSound} onChange={handleImportVipiski}>Импорт выписок</button>
+      </div>
         </div>
-        <div>
-          <p className="check-text">Проверить верность расписания:</p>
-          <button className="check-button" onClick={handleCheck}>Отправить информацию для проверки</button>
-        </div>
-      </main>
+      </div>
+    </div>
+
+ <div className="field-column">
+    <p className="check-texts">Ознакомиться с результатом можно, нажав на кнопку:</p>
+    <div className="button-container">
+      <button className="check-button-final" onClick={playSound} onChange={handleFinal}>Получить результат работы программы</button>
+    </div>
+  </div>
+  <p className="check-thank-you">Инструкция к применению</p>
+  
+  <img src={checkImage} alt="Check Image" className="check-image" />
+    </main>
   );
 }
 
