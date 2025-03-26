@@ -6,7 +6,7 @@ import clickSound  from '../assets/click-sound.mp3';
 export function PostContent() {
   
   const navigate = useNavigate();
-  const [Usermail, setEmail] = useState('');
+  const [Email, setEmail] = useState('');
   const [EmailError, setEmailError] = useState(false);
   const [isButtonEnabled, setIsButtonEnabled] = useState(true);
   const [timeLeft, setTimeLeft] = useState(0); 
@@ -25,12 +25,12 @@ export function PostContent() {
   const handleChange = async () => {
     playSound();
       try {
-          const response = await fetch('http://localhost:8080/auth/sendPin', {
+          const response = await fetch('http://localhost:8091/sendPin', {
               method: 'POST',
               headers: {
                   'Content-Type': 'application/json',
               },
-              body: JSON.stringify({ Usermail }),
+              body: JSON.stringify({ Email }),
           });
 
           if (response.ok) {
@@ -75,7 +75,7 @@ export function PostContent() {
         <input
           type="text"
           className={`post-input ${EmailError ? 'border-red-500 border-[2px]' : ''}`}
-          value={Usermail}
+          value={Email}
           onChange={handleEmailChange}
         />
         <button

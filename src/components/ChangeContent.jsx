@@ -7,17 +7,17 @@ import clickSound  from '../assets/click-sound.mp3';
 export function ChangeContent() {
   const setAuth = AppStore(state => state.SetAuth); 
   const navigate = useNavigate();
-  const [Usermail, setUsermail] = useState('');
-  const [UsermailError, setUsermailError] = useState(false);
+  const [Email, setEmail] = useState('');
+  const [EmailError, setEmailError] = useState(false);
   const [Password, setPassword] = useState('');
   const [PasswordError, setPasswordError] = useState(false);
   const [Pin, setPin] = useState('');
   const [PinError, setPinError] = useState(false);
-  const handleUsermailChange = (e) => {
+  const handleEmailChange = (e) => {
     const usermail = e.target.value;
-    setUsermail(usermail);
+    setEmail(usermail);
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    setUsermailError(!emailRegex.test(usermail));
+    setEmailError(!emailRegex.test(usermail));
   }
 
   const audio = new Audio(clickSound); 
@@ -40,12 +40,12 @@ export function ChangeContent() {
   const handleWorkSphere = async () => {
     playSound();
     try {
-      const response = await fetch('http://localhost:8080/auth/checkPin', {
+      const response = await fetch('http://localhost:8091/updatePassword', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ Usermail, Pin, Password }),
+        body: JSON.stringify({ Email, Pin, Password }),
       });
 
       if (response.ok) {
@@ -74,9 +74,9 @@ export function ChangeContent() {
     <div className="change-container">
       <div className="change-form">
         <h1 className="change-text">Введите адрес электронной почты</h1>
-        <input type="text" className={`change-input ${UsermailError ? 'border-red-500 border-[2px]' : ''}`}
-               value={Usermail}
-               onChange={handleUsermailChange} />
+        <input type="text" className={`change-input ${EmailError ? 'border-red-500 border-[2px]' : ''}`}
+               value={Email}
+               onChange={handleEmailChange} />
         <h1 className="change-text">Введите код из сообщения на почте</h1>
         <input type="texts"  className={`change-input ${PinError ? 'border-red-500 border-[2px]' : ''}`}
                value={Pin}

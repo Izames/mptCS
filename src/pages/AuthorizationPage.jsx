@@ -8,9 +8,9 @@ export const AuthorizationPage = () => {
         <>
         <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
             <Header/>
-            {/* <CheckContent/>
-            <Footer style={{ marginTop: 'auto' }}/>  */}
-            <AuthContent/>
+            <CheckContent/>
+            <Footer style={{ marginTop: 'auto' }}/> 
+            {/* <AuthContent/> */}
                 </div>
         </>
     )

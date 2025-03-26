@@ -46,7 +46,7 @@ export function AuthContent() {
   const handleWorkSphere = async () => {
     console.log('Отправляемые данные:', { Email, Password });
     try {
-      const response = await fetch('http://localhost:8080/auth/login', {
+      const response = await fetch('http://localhost:8091/auth', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

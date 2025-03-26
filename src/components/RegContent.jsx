@@ -37,7 +37,7 @@ export function RegContent() {
     playSound();
     console.log('Отправляемые данные:', { Email, Password });
     try {
-      const response = await fetch('http://localhost:8080/auth/register', {
+      const response = await fetch('http://localhost:8091/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
