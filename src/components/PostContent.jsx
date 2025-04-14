@@ -14,7 +14,7 @@ export function PostContent() {
     }
   const handleChange = async () => {
       try {
-          const response = await fetch('http://localhost:8080/auth/sendPin', {
+          const response = await fetch('/api/auth/sendPin', {
               method: 'POST',
               headers: {
                   'Content-Type': 'application/json',
@@ -40,7 +40,7 @@ export function PostContent() {
     <div className="post-container">
       <h1 className="post-title">Введите почту для отправки кода</h1>
       <div className="post-form">
-        <input type="text" placeholder="Почта" className={`post-input ${EmailError ? 'border-red-500 border-[2px]' : ''}`}
+        <input type="text"  className={`post-input ${EmailError ? 'border-red-500 border-[2px]' : ''}`}
                value={Usermail}
                onChange={handleEmailChange} />
         <button onClick={handleChange} className="post-button">Отправить код</button>

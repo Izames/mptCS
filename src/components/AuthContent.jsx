@@ -34,7 +34,7 @@ export function AuthContent() {
   const handleWorkSphere = async () => {
     console.log('Отправляемые данные:', { Email, Password });
     try {
-      const response = await fetch('http://localhost:8080/auth/login', {
+      const response = await fetch('/api/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -64,16 +64,16 @@ export function AuthContent() {
     <div className="auth-container">
       <h1 className="auth-title">Авторизация</h1>
       <div className="auth-form">
+      <h1 className="auth-text">Почта</h1>
         <input
           type="text"
-          placeholder="Почта"
           className={`auth-input ${EmailError ? 'border-red-500 border-[2px]' : ''}`}
           value={Email}
           onChange={handleEmailChange} // Обновляем состояние email
         />
+        <h1 className="auth-title">Пароль</h1>
         <input
           type="password"
-          placeholder="Пароль"
           className={`auth-input ${PasswordError ? 'border-red-500 border-[2px]' : ''}`}
           value={Password}
           onChange={handleChangePassword} // Обновляем состояние password

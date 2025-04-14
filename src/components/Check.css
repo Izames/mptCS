@@ -15,49 +15,66 @@
     border: 1px solid #ccc;
     border-radius: 1.875rem;
     background-color: #f0f0f0;
-    width: 25rem;
-    height: 6.25rem;
+    width: 17.5rem;
+    height: 4.25rem;
   }
   
   .check-button {
-    font-size: 1.6875rem;
+    font-size: 1rem;
     background-color: rgb(75, 119, 206);
     color: white;
     padding: 0.625rem 1.25rem;
     border: none;
     border-radius: 1.875rem;
     cursor: pointer;
-    width: 25rem;
-    height: 6.25rem;
+    width: 17.5rem;
+    height: 4.25rem;
   }
-  .check-button1 {
-    margin-bottom: 20px;
-    font-size: 1.6875rem;
+  .file-input-wrapper {
+    position: relative; /* Делаем обертку относительной для позиционирования элементов */
+    display: inline-block;
+ }
+ 
+ .file-input-wrapper label {
+    font-size: 1rem;
     background-color: rgb(75, 119, 206);
     color: white;
     padding: 0.625rem 1.25rem;
     border: none;
     border-radius: 1.875rem;
     cursor: pointer;
-    width: 25rem;
-    height: 6.25rem;
+    width: 17.5rem;
+    height: 4.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-  .check-button2 {
-    font-size: 1.6875rem;
-    background-color: rgb(88, 166, 210);
-    color: white;
-    padding: 0.625rem 1.25rem;
-    border: none;
-    border-radius: 1.875rem;
+ 
+ .file-input-wrapper input[type="file"] {
+    position: absolute; /* Абсолютное позиционирование */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0; /* Делаем его прозрачным */
     cursor: pointer;
-    width: 25rem;
-    height: 6.25rem;
+    z-index: 1; /* Гарантируем, что input перекрывает label */
+   }
+ 
+ .file-input-wrapper input[type="file"]:hover {
+    background-color: #2d3b5a;
+   }
+  .file-input-wrapper label:hover {
+    background-color: #2d3b5a;
+    }
+  .check-texts  {
+    color: rgb(62, 100, 176);
+    font-size: 2rem;
   }
-
   
   .check-text {
-    font-size: 1.6875rem;
-    width: 25rem;
+    font-size: 1rem;
+    width: 15rem;
     height: 3.75rem;
     text-align: center;
   }
