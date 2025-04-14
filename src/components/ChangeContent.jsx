@@ -30,7 +30,7 @@ export function ChangeContent() {
   }
   const handleWorkSphere = async () => {
     try {
-      const response = await fetch('http://localhost:8080/auth/checkPin', {
+      const response = await fetch('/api/auth/checkPin', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

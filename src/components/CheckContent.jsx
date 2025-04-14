@@ -63,7 +63,7 @@ export function CheckContent() {
 
   const handleWorkSphere = async () => {
     try {
-      const response = await fetch('http://localhost:8080/auth/register', {
+      const response = await fetch('/api/auth/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -101,7 +101,7 @@ export function CheckContent() {
     }
 
     try {
-      const response = await fetch('http://localhost:8080/schedule/CheckSchedule', {
+      const response = await fetch('/api/schedule/CheckSchedule', {
         method: 'POST',
         body: formData,
         headers: {

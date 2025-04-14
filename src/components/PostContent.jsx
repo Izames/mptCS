@@ -14,7 +14,7 @@ export function PostContent() {
     }
   const handleChange = async () => {
       try {
-          const response = await fetch('http://localhost:8080/auth/sendPin', {
+          const response = await fetch('/api/auth/sendPin', {
               method: 'POST',
               headers: {
                   'Content-Type': 'application/json',
