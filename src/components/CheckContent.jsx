@@ -25,33 +25,20 @@ export function CheckContent() {
     audio.play();
   };
 
-  const handleDirector = (e) => {
-    setDirector(e.target.value);
-  }
-  const handleYears = (e) => {
-    setYears(e.target.value);
-  }
-  const handleDirectorYR = (e) => {
-    setDirectorYR(e.target.value);
-  }
-  const handleMD = (e) => {
-    setMD(e.target.value);
-  }
-  const handleStartDate = (e) => {
-    setStartDate(e.target.value);
-  }
-  const handleEndDate = (e) => {
-    setEndDate(e.target.value);
-  }
-  const handleYearChange = (e) => {
-    setYear(e.target.value);
-  }
+  const handleDirector = (e) => setDirector(e.target.value);
+  const handleYears = (e) => setYears(e.target.value);
+  const handleDirectorYR = (e) => setDirectorYR(e.target.value);
+  const handleMD = (e) => setMD(e.target.value);
+  const handleStartDate = (e) => setStartDate(e.target.value);
+  const handleEndDate = (e) => setEndDate(e.target.value);
+  const handleYearChange = (e) => setYear(e.target.value);
 
   const handleImportTeacher = (e) => {
     const file = e.target.files[0];
     if (file) {
       setTeacher(file);
     }
+    e.target.value = ''; // Сброс input для возможности повторной загрузки того же файла
   }
 
   const handleImportGroup = (e) => {
@@ -59,13 +46,27 @@ export function CheckContent() {
     if (file) {
       setGroup(file);
     }
+    e.target.value = '';
   }
 
   const handleImportExtracts = (e) => {
     const files = Array.from(e.target.files);
     if (files.length > 0) {
-      setExtracts(files);
+      setExtracts(prev => [...prev, ...files]);
     }
+    e.target.value = '';
+  }
+
+  const removeTeacherFile = () => {
+    setTeacher(null);
+  }
+
+  const removeGroupFile = () => {
+    setGroup(null);
+  }
+
+  const removeExtractFile = (index) => {
+    setExtracts(prev => prev.filter((_, i) => i !== index));
   }
 
   const handleFinal = async (event) => {
@@ -139,11 +140,11 @@ export function CheckContent() {
             <div className="field-column">
               <input type="text" className="check-input" placeholder="Введите данные" onChange={handleDirector}
                      value={director}/>
-                     
+
               <input type="text" className="check-input" placeholder="Введите данные" onChange={handleDirectorYR}
                      value={directorYR}/>
               <input type="text" className="check-input" placeholder="Введите данные" onChange={handleMD} value={md}/>
-                     <input type="text" className="check-input" placeholder="Введите данные" onChange={handleYears} value={years}/>
+              <input type="text" className="check-input" placeholder="Введите данные" onChange={handleYears} value={years}/>
               <input type="text" className="check-input" placeholder="Введите данные" onChange={handleYearChange}
                      value={currentYear}/>
             </div>
@@ -172,6 +173,13 @@ export function CheckContent() {
                       }}
                   />
                 </label>
+                {teacher && (
+                    <div className="file-info">
+                      <span>{teacher.name}</span>
+                      <button onClick={removeTeacherFile} className="remove-file-btn">×</button>
+                    </div>
+                )}
+
                 <label className="check-button23">
                   Импорт ограничений для групп
                   <input
@@ -183,6 +191,13 @@ export function CheckContent() {
                       }}
                   />
                 </label>
+                {group && (
+                    <div className="file-info">
+                      <span>{group.name}</span>
+                      <button onClick={removeGroupFile} className="remove-file-btn">×</button>
+                    </div>
+                )}
+
                 <label className="check-button23">
                   Импорт выписок
                   <input
@@ -195,6 +210,16 @@ export function CheckContent() {
                       }}
                   />
                 </label>
+                {extracts.length > 0 && (
+                    <div className="extracts-list">
+                      {extracts.map((file, index) => (
+                          <div key={index} className="file-info">
+                            <span>{file.name}</span>
+                            <button onClick={() => removeExtractFile(index)} className="remove-file-btn">×</button>
+                          </div>
+                      ))}
+                    </div>
+                )}
               </div>
             </div>
           </div>

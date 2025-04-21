@@ -65,7 +65,7 @@ export function RegContent() {
 
  return (
     <div className="auth-container">
-      <h1 className="auth-title">Регистация</h1>
+      <h1 className="auth-title">Регистрация</h1>
       <div className="auth-form">
       <h1 className="auth-text">Почта</h1>
         <input
@@ -81,7 +81,7 @@ export function RegContent() {
           value={Password}
           onChange={handleChangePassword} // Обновляем состояние password
         />
-        <button onClick={handleWorkSphere} className="auth-button">Зарегестироваться</button>
+        <button onClick={handleWorkSphere} className="auth-button">Зарегистрироваться</button>
         {Error ? ( // Условное рендеринг сообщения об ошибке
             <p className={'text-red-600 text-xl'}>неверный логин или пароль</p>
         ) : null}
