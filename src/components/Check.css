@@ -1,0 +1,357 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+.check-container {
+  margin-left: 0.625rem;
+  margin-right: 0.625rem;
+  margin-top: 0.625rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.875rem;
+  border-radius: 1.875rem;
+  justify-items: center;
+  text-align: center;
+}
+
+.check-input {
+  font-size: 1rem;
+  padding: 1.5625rem;
+  border: 1px solid #ccc;
+  border-radius: 1rem;
+  background-color: #f0f0f0;
+  width: 17.5rem;
+  height: 4.25rem;
+  text-align: center;
+}
+
+.check-button {
+  font-size: 1rem; 
+  background-color: #89A8B2;
+  color: white;
+  padding: 0.625rem 1.25rem;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  width: 17.5rem;
+  height: 4.25rem;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.check-button23 {
+
+  font-size: 1rem; 
+  background-color: #89A8B2;
+  color: white;
+  padding: 0.625rem 1.25rem;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  width: 17.5rem;
+  height: 4.25rem;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.check-button:hover {
+  background-color: #7A9A9F; 
+  transform: translateY(-2px); 
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5); 
+}
+
+.check-button23:hover {
+  background-color: #7A9A9F; 
+  transform: translateY(-2px); 
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5); 
+}
+
+.check-button-final {
+  font-size: 1rem; 
+  background-color: #89A8B2;
+  color: white;
+  padding: 0.625rem 1.25rem;
+  border: none;
+  border-radius: 1.4rem;
+  cursor: pointer;
+  width: 37.5rem;
+  height: 7.25rem;
+  margin-bottom: 2.5rem;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.check-button-final:hover {
+  background-color: #7A9A9F; 
+  transform: translateY(-2px); 
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5); 
+}
+
+.file-input-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.file-input-wrapper label {
+  font-size: 1rem;
+  background-color: #89A8B2;
+  color: white;
+  padding: 0.625rem 1.25rem;
+  border: none;
+  border-radius: 1.875rem;
+  cursor: pointer;
+  width: 17.5rem;
+  height: 4.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.file-input-wrapper input[type="file"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.file-input-wrapper input[type="file"]:hover {
+  background-color: #89A8B2;
+}
+
+.file-input-wrapper label:hover {
+  background-color: #89A8B2;
+}
+
+.check-texts {
+  margin-bottom: 1.2rem;
+  margin-top: 1.2rem;
+  color: #89A8B2;
+  font-size: 1rem;
+  font-family: 'Source Code Pro', cursive;
+  text-align: center; 
+  display: flex; 
+  justify-content: center;
+  align-items: center; 
+  width: 100%; 
+}
+
+.check-text {
+  font-size: 1rem; 
+  width: 15rem;
+  height: 3.75rem;
+  text-align: center;
+}
+
+.check-phone-input {
+  font-size: 1rem; 
+  padding: 25px;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  background-color: #f0f0f0;
+  width: 400px;
+}
+
+
+.check-text,
+.check-input,
+.check-phone-input,
+.check-button2 {
+  margin-top: 1.5rem;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  margin-bottom: 1.5rem;
+}
+
+.addbtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #89A8B2;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #89A8B2;
+  border-radius: 20px;
+  height: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5588d9;
+}
+
+
+
+.check-image {
+  max-width: 90%;
+  height: auto;
+  border-radius: 1.875rem;
+  grid-column: 1 / -1;
+  border: 3px solid #89A8B2; 
+  padding: 5px; 
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+  margin-bottom: 1rems;
+  margin-bottom: 3rem;
+}
+
+.check-thank-you {
+  font-size: 1.2rem;
+  color: #89A8B2;
+  grid-column: 1 / -1;
+  margin-top: 1rem;
+}
+
+@media (min-width: 701px) {
+  .check-texts {
+    padding: 1.5rem;
+      grid-column: 1 / -1;
+  }
+
+  .fields-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 1.875rem; 
+    border: 1px solid #ccc;
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+  
+  .field-group {
+    display: contents; 
+    margin-bottom: 1.5rem; 
+  }
+  
+  .field-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .check-texts {
+    margin-bottom: 0.5rem;
+  }
+}
+.remove-file-btn
+{
+  color: red;
+}
+.field-label {
+color: #89A8B2;
+margin-bottom: 0.25rem;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;       
+  grid-column: 1 / -1;   
+
+}
+.slogan-container {
+  background-color: #89A8B2; 
+  color: white;
+  padding: 1rem;
+  border-radius: 1.875rem; 
+  grid-column: 1 / -1; 
+  text-align: center; 
+  font-size: 2rem;
+  font-family: 'Source Code Pro', cursive;
+  margin-top: 1.5rem;
+}
+
+.container {
+  padding: 20px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+p {
+  margin: 0 10px 0 0;
+  font-size: 1rem;
+}
+
+input {
+  width: 27.5rem;
+  padding: 5px;
+  font-size: 1rem;
+}
+
+.field-group {
+  display: flex;
+  margin-bottom: 20px; 
+}
+
+.field-column {
+  margin-right: 20px; 
+}
+
+.check-texts {
+  
+  font-size: 1rem; 
+
+}
+.check-text {
+  
+  font-size: 1rem; 
+
+}
+.check-input {
+ 
+  padding: 5px;
+  font-size: 1rem; 
+  margin-bottom: 10px; 
+}
+
+.button-container {
+  margin-top: 20px; 
+}
+
+.check-button {
+  margin-bottom: 1.5rem;
+  margin-right: 10px; 
+}
+.check-button23 {
+  margin-bottom: 2.5rem;
+  font-size: 1rem;
+}
+
+
+@media (max-width: 700px) {
+  .check-container {
+    grid-template-columns: 1fr; /* Один столбец на мобильных устройствах */
+  }
+
+  .check-input,
+  .check-phone-input,
+  .check-button,
+  .check-button23,
+  .check-button-final {
+    width: 100%; /* Полная ширина для мобильных устройств */
+    max-width: 100%; /* Максимальная ширина для мобильных устройств */
+    font-size: 0.75rem; 
+
+  }
+
+  .check-texts,
+  .check-text {
+    width: 100%; /* Полная ширина для мобильных устройств */
+    max-width: 100%; /* Максимальная ширина для мобильных устройств */
+  }
+
+  .check-image {
+    width: 100%; /* Полная ширина для изображений на мобильных устройствах */
+    height: auto; /* Авто высота для изображений */
+  }
+}

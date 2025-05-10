@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500&family=Roboto:wght@400;500;700&display=swap');
+
+:root {
+  --primary-color: #89A8B2;
+  --primary-hover: #7A9A9F;
+  --error-color: #EF4444;
+  --text-color: #2D3748;
+  --light-gray: #F7FAFC;
+  --border-radius: 1.875rem;
+  --transition: all 0.3s ease;
+}
+
+/* Стили для скрытия скроллбара */
+html {
+  scrollbar-width: none; /* Для Firefox */
+  -ms-overflow-style: none; /* Для IE и Edge */
+}
+
+html::-webkit-scrollbar {
+  display: none; /* Для Chrome, Safari и Opera */
+}
+
+body {
+  overflow-y: scroll; /* Всегда резервируем место для скроллбара */
+  -webkit-overflow-scrolling: touch; /* Плавный скролл на iOS */
+}
+
+/* Анимации */
+@keyframes slideInFromRight {
+  from {
+    transform: perspective(1000px) translateX(100%) rotateY(-90deg);
+    opacity: 0;
+  }
+  to {
+    transform: perspective(1000px) translateX(0) rotateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutToLeft {
+  from {
+    transform: perspective(1000px) translateX(0) rotateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: perspective(1000px) translateX(-100%) rotateY(90deg);
+    opacity: 0;
+  }
+}
+
+.page-enter {
+  animation: slideInFromRight 0.5s forwards;
+}
+
+.page-exit {
+  animation: slideOutToLeft 0.5s forwards;
+}
+
+.auth-container {
+  text-align: center;
+  max-width: 28rem;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Остальные стили остаются без изменений */
+.auth-title {
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* ... остальной ваш CSS код ... */
+
+.auth-text {
+  font-family: 'Source Code Pro', monospace;
+  color: var(--text-color);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  align-self: flex-start;
+  margin-left: 1.5rem;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.auth-input {
+  width: 100%;
+  padding: 1.2rem 1.5rem;
+  border: 1px solid #E2E8F0;
+  border-radius: var(--border-radius);
+  background-color: var(--light-gray);
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+
+.auth-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(137, 168, 178, 0.2);
+}
+
+.auth-input-error {
+  border: 2px solid var(--error-color) !important;
+}
+
+.auth-button {
+  width: 100%;
+  padding: 1.2rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: 0.5rem;
+}
+
+.auth-button:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.auth-button:disabled {
+  background-color: #CBD5E0;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.auth-forgot-password {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+  padding: 0.5rem;
+}
+
+.auth-forgot-password:hover {
+  text-decoration: underline;
+  color: var(--primary-hover);
+}
+
+.error-message {
+  color: var(--error-color);
+  font-size: 0.85rem;
+  margin-top: -0.5rem;
+  align-self: flex-start;
+  margin-left: 1.5rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+.auth-divider {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  color: #A0AEC0;
+  font-size: 0.8rem;
+  margin: 0.5rem 0;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #E2E8F0;
+  margin: 0 0.5rem;
+}
+
+@media (max-width: 640px) {
+  .auth-container {
+    padding: 1.5rem;
+    margin: 1rem;
+    box-shadow: none;
+  }
+  
+  .auth-title {
+    font-size: 1.75rem;
+  }
+  
+  .auth-text {
+    margin-left: 0.5rem;
+  }
+  
+  .error-message {
+    margin-left: 0.5rem;
+  }
+}
